@@ -27,7 +27,7 @@ public class App
         Session session = sf.openSession();
         Transaction trans = session.beginTransaction();
         //session.save(a1);
-        a1= session.get(Alien.class, 101);
+        a1= session.get(Alien.class, 101);//fetching data from database
         System.out.println(a1);
         trans.commit();
         System.out.println("program ended_________");
