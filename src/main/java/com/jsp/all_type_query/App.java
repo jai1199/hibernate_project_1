@@ -14,10 +14,11 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "program started____ " );
-        Alien a1 = new Alien();
-        a1.setAid(101);
-        a1.setAname("anakonda");
-        a1.setColour("green");
+		
+		 Alien a1 = new Alien(); 
+		 //a1.setAid(102); a1.setAname("raman");
+		 //a1.setColour("blue");
+		 
         
         Configuration con = new Configuration();
         con.configure();
@@ -25,7 +26,9 @@ public class App
         SessionFactory sf = con.buildSessionFactory();
         Session session = sf.openSession();
         Transaction trans = session.beginTransaction();
-        session.save(a1);
+        //session.save(a1);
+        a1= session.get(Alien.class, 101);
+        System.out.println(a1);
         trans.commit();
         System.out.println("program ended_________");
     }
